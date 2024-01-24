@@ -199,12 +199,18 @@ h2 {
   margin-right: 2.031vw;
 }
 
+#content-header{
+  display: flex;
+  flex-direction: row;
+}
+
 #sell-subheader {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 73.359vw;
 }
+
 
 #sell-subheader-drop {
   display: flex;
