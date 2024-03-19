@@ -51,6 +51,8 @@ html,body
   display: flex;
   flex-direction: row;
   cursor: pointer;
+  justify-content: space-between;
+  /* delete this justify-content once online store is back */
 }
 
 #boheme-logo img{
@@ -217,7 +219,7 @@ html,body
 
 .nav-span{
   float: right;
-  margin-left: 400px;
+  margin-left: 300px;
 
 }
 .dropbutn {
@@ -472,11 +474,17 @@ html,body
     .hiddens{
       display: none !important;
     }
+    #nav-grid{
+      padding-right: 5%;
+    }
   }
 
   @media (min-width:720px){
     .nav-span{
       display: none;
+    }
+    #nav-grid{
+      padding-right: 5%;
     }
   }
 
@@ -489,5 +497,8 @@ html,body
     }
     #nav-container{
       height: 36px !important;
+    }
+    #nav-grid{
+      padding-right: 5%;
     }
   }
