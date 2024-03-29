@@ -474,10 +474,16 @@ html,body
       display: none !important;
     }
     #nav-grid{
-      padding-right: 10%;
+      padding-right: 30%;
     }
     .nav-span{
       margin-left: 10px !important;
+    }
+    .dropdown-content{
+      width: 150px !important;
+    }
+    #nav-container{
+      height: 36px !important;
     }
   }
 
@@ -490,15 +496,8 @@ html,body
     }
   }
 
-  @media (max-width:480px) {
-    .nav-span{
-      margin-left: 0px !important;
-      margin-right: 50px;
-    }
-    .dropdown-content{
-      width: 150px !important;
-    }
-    #nav-container{
-      height: 36px !important;
+  @media (max-width:40px) {
+    #nav-grid{
+      padding-right: 70%;
     }
   }
