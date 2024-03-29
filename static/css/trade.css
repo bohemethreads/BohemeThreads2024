@@ -708,7 +708,7 @@ strong {
 
 @media only screen and (max-width:480px){
   #how-does-it-work{
-    height: 300px;
+    height: 200px;
   }
   h2 {
     margin-top: 0px !important;

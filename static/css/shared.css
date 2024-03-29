@@ -492,7 +492,7 @@ html,body
 
   @media only screen and (max-width:480px) {
     .nav-span{
-      margin-left: 200px !important;
+      margin-left: 100px !important;
     }
     .dropdown-content{
       width: 150px !important;
@@ -501,6 +501,6 @@ html,body
       height: 36px !important;
     }
     #nav-grid{
-      padding-right: 20%;
+      padding-right: 50%;
     }
   }
