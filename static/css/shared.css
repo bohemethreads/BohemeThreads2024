@@ -479,15 +479,6 @@ html,body
     }
   }
 
-  @media (min-width:720px){
-    .nav-span{
-      display: none;
-    }
-    #nav-grid{
-      padding-right: 10%;
-    }
-  }
-
   @media (max-width:480px) {
     .nav-span{
       margin-left: 300px !important;
@@ -499,6 +490,6 @@ html,body
       height: 36px !important;
     }
     #nav-grid{
-      padding-right: 10%;
+      padding-right: 20%;
     }
   }
