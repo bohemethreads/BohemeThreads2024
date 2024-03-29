@@ -484,7 +484,7 @@ html,body
       display: none;
     }
     #nav-grid{
-      padding-right: 5%;
+      padding-right: 10%;
     }
   }
 
@@ -499,6 +499,6 @@ html,body
       height: 36px !important;
     }
     #nav-grid{
-      padding-right: 5%;
+      padding-right: 10%;
     }
   }
