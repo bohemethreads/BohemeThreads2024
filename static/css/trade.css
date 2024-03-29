@@ -697,7 +697,7 @@ strong {
   text-decoration: none;
 }
 
-@media (max-width:720px){
+@media only screen and (max-width:720px){
   #how-does-it-work{
     height: 480px;
   }
@@ -706,9 +706,9 @@ strong {
   }
 }
 
-@media (max-width:480px){
+@media only screen and (max-width:480px){
   #how-does-it-work{
-    height: 400px;
+    height: 300px;
   }
   h2 {
     margin-top: 0px !important;
