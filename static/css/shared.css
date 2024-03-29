@@ -469,7 +469,7 @@ html,body
 
 /*footer end*/
 
-  @media only screen and (max-width: 720px){
+  @media  (max-width: 720px){
     .hiddens{
       display: none !important;
     }
@@ -481,7 +481,7 @@ html,body
     }
   }
 
-  @media only screen and (min-width: 720px){
+  @media (min-width: 720px){
     .nav-span{
       display: none;
     }
@@ -490,9 +490,10 @@ html,body
     }
   }
 
-  @media only screen and (max-width:480px) {
+  @media (max-width:480px) {
     .nav-span{
-      margin-left: 100px !important;
+      margin-left: 0px !important;
+      margin-right: 50px;
     }
     .dropdown-content{
       width: 150px !important;
