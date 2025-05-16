@@ -163,7 +163,16 @@ input[type="checkbox"] {
 }
 
 .grecaptcha-badge {
-  display: none !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: -186px !important;
+  z-index: 9999 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.grecaptcha-badge:hover {
+  right: 0px !important;
 }
 
 .captcha-submit {

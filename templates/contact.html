@@ -131,7 +131,7 @@
     <div id="get-in-touch-container">
         <h4>Get in Touch!</h4>
         <p>Ask us anything! We'll get back to you in 24-48 hours.</p>
-        <form action="https://formspree.io/f/xkndodoq" method="post">
+        <form action="https://formspree.io/f/xkndodoq" method="post" id="contact-form">
           <div class="input-div">
                 <h2 for="firstName">First Name</h2>
                 <input type="text" name="firstName"  id="firstName" required>
@@ -155,7 +155,17 @@
             <div class="input-div">
                 <div class="captcha-submit">
                     <!-- <div class="g-recaptcha" data-sitekey="Your site key goes here"></div> -->
-                    <button id="submit-button" type="submit" name="submit">Submit</button>
+                     <!-- <button id="submit-button" type="submit" name="submit">Submit</button> -->
+                    <button
+                    class="g-recaptcha"
+                    data-sitekey="6Lf8ujwrAAAAAEbYq1hC5IRYO3RTxma37hTIXfyn"
+                    data-callback="onSubmit"
+                    id="submit-button"
+                    type="submit"
+                    name="submit-btn"
+                  >
+                    Submit
+                  </button>
                 </div>
             </div> 
         </form>
@@ -298,4 +308,12 @@ ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3
         2024 Bohème Used Clothing & Gifts </div>
 </div>
 </div>
+
+<script>
+  function onSubmit(token) {
+    // console.log("✅ reCAPTCHA token received:", token);
+    document.querySelector("#contact-form").submit();
+  }
+</script>
+</body>
 </html>
