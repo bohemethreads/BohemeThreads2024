@@ -157,13 +157,13 @@ input[type="checkbox"] {
   margin: 0.469vw 0.195vw 0vw 0vw;
 }
 
-.g-recaptcha {
+/* .g-recaptcha {
   transform: scale(1.5);
   transform-origin: 0 0;
-}
+} */
 
-.grecaptcha-badge {
-  position: fixed !important;
+.g-recaptcha {
+  /* position: fixed !important; */
   bottom: 20px !important;
   right: -186px !important;
   z-index: 9999 !important;
@@ -171,7 +171,7 @@ input[type="checkbox"] {
   opacity: 1 !important;
 }
 
-.grecaptcha-badge:hover {
+.g-recaptcha:hover {
   right: 0px !important;
 }
 
