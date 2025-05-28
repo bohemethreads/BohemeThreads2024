@@ -241,9 +241,7 @@
           2024 Bohème Used Clothing & Gifts </div>
   </div>
   </div>
-  <!-- <script src="https://www.google.com/recaptcha/api.js?render=6LeeSkErAAAAAPeqEfTZVc5PRlV_jH2WtEZ5S3kK"></script> -->
-
-    <script>   
+      <script>   
         function generateCaptcha(canvasId, store) {
       const canvas = document.getElementById(canvasId);
       const ctx = canvas.getContext('2d');
@@ -319,42 +317,6 @@
         }
 
         form.submit();
-
-        // grecaptcha.ready(function () {
-        //     grecaptcha.execute("6LeeSkErAAAAAPeqEfTZVc5PRlV_jH2WtEZ5S3kK", {
-        //     action: "submit",
-        //     }).then(function (token) {
-        //     const formData = new FormData(form);
-        //     formData.append("recaptchaToken", token);
-
-        //     fetch("verify-recaptcha-and-forward.php", {
-        //         method: "POST",
-        //         body: formData,
-        //     })
-        //         .then((response) => {
-        //         if (!response.ok) throw new Error("Network error");
-        //         return response.text(); // parse as text
-        //         })
-        //         .then((text) => {
-        //         try {
-        //             const data = JSON.parse(text);
-        //             if (data.success) {
-        //             alert("Message sent successfully!");
-        //             form.reset();
-        //             } else {
-        //             alert("reCAPTCHA verification failed. Please try again.");
-        //             }
-        //         } catch (e) {
-        //             console.error("Invalid JSON response:", text);
-        //             alert("Unexpected server response. Please try again.");
-        //         }
-        //         })
-        //         .catch((error) => {
-        //         console.error("Error:", error);
-        //         alert("Something went wrong. Please try again later.");
-        //         });
-        //     });
-        // });
         });
     </script>
   </body>
