@@ -71,7 +71,7 @@ p {
   margin-top: 2.5vw;
   @media (max-width:720px) {
     font-weight: 500;
-}
+  }
 }
 
 #stop-by-left iframe {
@@ -200,7 +200,7 @@ input[type="checkbox"] {
   padding: 0.625vw 2.5vw;
   @media (max-width:720px) {
     font-weight: 500;
-}
+  }
 }
 
 /* Get in Touch End */
@@ -282,3 +282,33 @@ a:active {
   text-decoration: underline;
 }
 /*FAQ End */
+
+/* captcha start */
+.captcha-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+canvas {
+  border-radius: 6px;
+}
+
+.refresh-btn {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  min-height: 50px;
+  min-width: 50px;
+  font-size: 30px;
+  padding: 0px 0px 5px 0px;
+}
+
+.refresh-btn:hover {
+  background-color: #0056b3;
+}
+
+/* captcha end */

@@ -291,6 +291,13 @@
               </div>
               <div id="email-footer">
                   <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address" required="" value="">
+                  <div class="footer-captcha-container">
+                        <canvas id="captchaCanvasFooter" width="150" height="50"></canvas>
+                        <button type="button" class="refresh-btn" onclick="generateCaptcha('captchaCanvasFooter', 'captchaFooter')">↻</button>
+                    </div>
+                    <div>
+                        <input type="text" id="captchaInputFooter" placeholder="Enter CAPTCHA" required>
+                    </div>
                   <input id="email-button" type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
                   <div id="mce-responses" class="clear foot">
                       <div class="response" id="mce-error-response" style="display: none;"></div>
@@ -373,53 +380,119 @@ ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3
         2024 Bohème Used Clothing & Gifts </div>
 </div>
 </div>
-<script src="https://www.google.com/recaptcha/api.js?render=6LeeSkErAAAAAPeqEfTZVc5PRlV_jH2WtEZ5S3kK"></script>
+<!-- <script src="https://www.google.com/recaptcha/api.js?render=6LeeSkErAAAAAPeqEfTZVc5PRlV_jH2WtEZ5S3kK"></script> -->
 
     <script>      
-    document.getElementById("subscribe-form").addEventListener("submit", function (event) {
-        event.preventDefault();
+    function generateCaptcha(canvasId, store) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
 
-        const form = this;
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
+      let captcha = '';
+      for (let i = 0; i < 6; i++) {
+        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      window[store] = captcha;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#f0f0f0";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.font = "24px Arial";
+      ctx.fillStyle = "#000";
+
+      for (let i = 0; i < captcha.length; i++) {
+        const x = 15 + i * 20;
+        const y = 30 + Math.random() * 10;
+        const angle = (Math.random() - 0.5) * 0.4;
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(angle);
+        ctx.fillText(captcha[i], 0, 0);
+        ctx.restore();
+      }
+
+      // Noise
+      for (let i = 0; i < 4; i++) {
+        ctx.beginPath();
+        ctx.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
+        ctx.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
+        ctx.strokeStyle = '#aaa';
+        ctx.stroke();
+      }
+    }
+
+    function validateCaptcha(inputId, store) {
+      const value = document.getElementById(inputId).value?.trim();
+      return value === window[store]
+    }
+
+    window.onload = () => {
+      // Initialize both CAPTCHAs
+      generateCaptcha('captchaCanvasFooter', 'captchaFooter');
+
+      // Prevent copy/paste for both inputs
+      ['captchaInputFooter'].forEach(id => {
+        const input = document.getElementById(id);
+        ['copy', 'paste', 'cut'].forEach(evt =>
+          input.addEventListener(evt, e => e.preventDefault())
+        );
+      });
+    };
+    document.getElementById("subscribe-form").addEventListener("submit", function (event) {
+       event.preventDefault();
+        
+        // Validate CAPTCHA
+        if (!validateCaptcha('captchaInputFooter', 'captchaFooter')) {
+          alert('Invalid CAPTCHA. Try again.');
+          generateCaptcha('captchaCanvasFooter', 'captchaFooter'); // Refresh on failure
+          document.getElementById('captchaInputFooter').value = ''; // Clear input
+          return;
         }
 
-        grecaptcha.ready(function () {
-            grecaptcha.execute("6LeeSkErAAAAAPeqEfTZVc5PRlV_jH2WtEZ5S3kK", {
-            action: "submit",
-            }).then(function (token) {
-            const formData = new FormData(form);
-            formData.append("recaptchaToken", token);
+        const form = this;
 
-            fetch("verify-recaptcha-and-forward.php", {
-                method: "POST",
-                body: formData,
-            })
-                .then((response) => {
-                if (!response.ok) throw new Error("Network error");
-                return response.text(); // parse as text
-                })
-                .then((text) => {
-                try {
-                    const data = JSON.parse(text);
-                    if (data.success) {
-                    alert("Message sent successfully!");
-                    form.reset();
-                    } else {
-                    alert("reCAPTCHA verification failed. Please try again.");
-                    }
-                } catch (e) {
-                    console.error("Invalid JSON response:", text);
-                    alert("Unexpected server response. Please try again.");
-                }
-                })
-                .catch((error) => {
-                console.error("Error:", error);
-                alert("Something went wrong. Please try again later.");
-                });
-            });
-        });
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        form.submit();
+
+        // grecaptcha.ready(function () {
+        //     grecaptcha.execute("6LeeSkErAAAAAPeqEfTZVc5PRlV_jH2WtEZ5S3kK", {
+        //     action: "submit",
+        //     }).then(function (token) {
+        //     const formData = new FormData(form);
+        //     formData.append("recaptchaToken", token);
+
+        //     fetch("verify-recaptcha-and-forward.php", {
+        //         method: "POST",
+        //         body: formData,
+        //     })
+        //         .then((response) => {
+        //         if (!response.ok) throw new Error("Network error");
+        //         return response.text(); // parse as text
+        //         })
+        //         .then((text) => {
+        //         try {
+        //             const data = JSON.parse(text);
+        //             if (data.success) {
+        //             alert("Message sent successfully!");
+        //             form.reset();
+        //             } else {
+        //             alert("reCAPTCHA verification failed. Please try again.");
+        //             }
+        //         } catch (e) {
+        //             console.error("Invalid JSON response:", text);
+        //             alert("Unexpected server response. Please try again.");
+        //         }
+        //         })
+        //         .catch((error) => {
+        //         console.error("Error:", error);
+        //         alert("Something went wrong. Please try again later.");
+        //         });
+        //     });
+        // });
         });
     </script>
 </body>

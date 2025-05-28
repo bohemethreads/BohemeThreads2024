@@ -328,7 +328,7 @@ html,body
 
 #email-footer {
   width: 50%;
-  height:13.75vw;
+  min-height:13.75vw;
   align-items: center;
   padding-top: 2.031vw;
 }
@@ -374,6 +374,9 @@ html,body
   cursor: pointer !important;
   border: none !important;
   padding: 0px !important;
+  margin-left: 3.125vw !important;
+  margin-right: 1.563vw !important;
+  margin-top: 0.938vw !important;
 }
 
 #mc_embed_signup div#mce-responses{
@@ -466,6 +469,39 @@ html,body
   width: 1.016vw;
   height: 1.094vw;
 }
+
+/* captcha start */
+.footer-captcha-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-left: 3.125vw;
+  margin-right: 1.563vw;
+  margin-top: 0.938vw;
+}
+
+canvas {
+  border-radius: 6px;
+}
+
+.refresh-btn {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  min-height: 50px;
+  min-width: 50px;
+  font-size: 30px;
+  padding: 0px 0px 5px 0px;
+}
+
+.refresh-btn:hover {
+  background-color: #0056b3;
+}
+
+/* captcha end */
 
 /*footer end*/
 
